@@ -41,7 +41,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production
+          environment: Production (Failure)
       - name: Running production deployment
         run: |
           echo Deploying to production...
@@ -62,7 +62,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production
+          environment: Production (Pending)
       - name: Running production deployment
         run: |
           echo Deploying to production...
@@ -83,7 +83,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production
+          environment: Production (Inactive)
       - name: Running production deployment
         run: |
           echo Deploying to production...
@@ -104,7 +104,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production
+          environment: Production (Error)
       - name: Running production deployment
         run: |
           echo Deploying to production...
@@ -125,7 +125,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production
+          environment: Production (In Progress)
       - name: Running production deployment
         run: |
           echo Deploying to production...
@@ -146,7 +146,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production
+          environment: Production (Queued)
       - name: Running production deployment
         run: |
           echo Deploying to production...
@@ -167,7 +167,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production
+          environment: Production (Invalid)
       - name: Running production deployment
         run: |
           echo Deploying to production...
