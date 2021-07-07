@@ -62,7 +62,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production
+          environment: Production 123
       - name: Running production deployment
         run: |
           echo Deploying to production...
@@ -83,7 +83,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production (Inactive)
+          environment: Production
       - name: Running production deployment
         run: |
           echo Deploying to production...
