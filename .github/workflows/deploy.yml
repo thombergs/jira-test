@@ -31,9 +31,9 @@ jobs:
           target_url: http://my-cool-app.com
           state: "success"
           deployment_id: ${{ steps.deployment_staging.outputs.deployment_id }}
-  deploy-to-prod:
+  deploy-failure:
     runs-on: ubuntu-18.04
-    name: Deploy to Production
+    name: Failure Deployment
     steps: 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create prod deployment
@@ -50,5 +50,131 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          state: "success"
+          state: "failure"
+          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+  deploy-to-pending:
+    runs-on: ubuntu-18.04
+    name: Pending Deployment
+    steps: 
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create prod deployment
+        id: deployment_prod
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          environment: Production
+      - name: Running production deployment
+        run: |
+          echo Deploying to production...
+      - uses: chrnorm/deployment-status@releases/v1
+        name: Update prod deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          state: "pending"
+          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+  deploy-to-inactive:
+    runs-on: ubuntu-18.04
+    name: Inactive Deployment
+    steps: 
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create prod deployment
+        id: deployment_prod
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          environment: Production
+      - name: Running production deployment
+        run: |
+          echo Deploying to production...
+      - uses: chrnorm/deployment-status@releases/v1
+        name: Update prod deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          state: "inactive"
+          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+  deploy-to-error:
+    runs-on: ubuntu-18.04
+    name: Error Deployment
+    steps: 
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create prod deployment
+        id: deployment_prod
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          environment: Production
+      - name: Running production deployment
+        run: |
+          echo Deploying to production...
+      - uses: chrnorm/deployment-status@releases/v1
+        name: Update prod deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          state: "error"
+          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+  deploy-to-inprogress:
+    runs-on: ubuntu-18.04
+    name: In Progress Deployment
+    steps: 
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create prod deployment
+        id: deployment_prod
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          environment: Production
+      - name: Running production deployment
+        run: |
+          echo Deploying to production...
+      - uses: chrnorm/deployment-status@releases/v1
+        name: Update prod deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          state: "in_progress"
+          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+  deploy-to-queued:
+    runs-on: ubuntu-18.04
+    name: Queued Deployment
+    steps: 
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create prod deployment
+        id: deployment_prod
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          environment: Production
+      - name: Running production deployment
+        run: |
+          echo Deploying to production...
+      - uses: chrnorm/deployment-status@releases/v1
+        name: Update prod deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          state: "queued"
+          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+  deploy-to-invalid:
+    runs-on: ubuntu-18.04
+    name: Invalid Deployment
+    steps: 
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create prod deployment
+        id: deployment_prod
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          environment: Production
+      - name: Running production deployment
+        run: |
+          echo Deploying to production...
+      - uses: chrnorm/deployment-status@releases/v1
+        name: Update prod deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: http://my-cool-app.com
+          state: "invalid"
           deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
