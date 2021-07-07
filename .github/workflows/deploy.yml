@@ -41,7 +41,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
-          environment: Production (Failure)
+          environment: Production
       - name: Running production deployment
         run: |
           echo Deploying to production...
