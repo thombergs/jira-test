@@ -37,7 +37,7 @@ jobs:
     steps: 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create prod deployment
-        id: deployment_prod
+        id: deployment_prod_failure
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
@@ -58,7 +58,7 @@ jobs:
     steps: 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create prod deployment
-        id: deployment_prod
+        id: deployment_prod_pending
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
@@ -79,7 +79,7 @@ jobs:
     steps: 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create prod deployment
-        id: deployment_prod
+        id: deployment_prod_inactive
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
@@ -100,7 +100,7 @@ jobs:
     steps: 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create prod deployment
-        id: deployment_prod
+        id: deployment_prod_error
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
@@ -121,7 +121,7 @@ jobs:
     steps: 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create prod deployment
-        id: deployment_prod
+        id: deployment_prod_progress
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
@@ -142,7 +142,7 @@ jobs:
     steps: 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create prod deployment
-        id: deployment_prod
+        id: deployment_prod_queued
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
@@ -163,7 +163,7 @@ jobs:
     steps: 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create prod deployment
-        id: deployment_prod
+        id: deployment_prod_invalid
         with:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
