@@ -51,7 +51,7 @@ jobs:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
           state: "failure"
-          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+          deployment_id: ${{ steps.deploy-failure.outputs.deployment_id }}
   deploy-to-pending:
     runs-on: ubuntu-18.04
     name: Pending Deployment
@@ -72,7 +72,7 @@ jobs:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
           state: "pending"
-          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+          deployment_id: ${{ steps.deploy-to-pending.outputs.deployment_id }}
   deploy-to-inactive:
     runs-on: ubuntu-18.04
     name: Inactive Deployment
@@ -93,7 +93,7 @@ jobs:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
           state: "inactive"
-          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+          deployment_id: ${{ steps.deploy-to-inactive.outputs.deployment_id }}
   deploy-to-error:
     runs-on: ubuntu-18.04
     name: Error Deployment
@@ -114,7 +114,7 @@ jobs:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
           state: "error"
-          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+          deployment_id: ${{ steps.deploy-to-error.outputs.deployment_id }}
   deploy-to-inprogress:
     runs-on: ubuntu-18.04
     name: In Progress Deployment
@@ -135,7 +135,7 @@ jobs:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
           state: "in_progress"
-          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+          deployment_id: ${{ steps.deploy-to-inprogress.outputs.deployment_id }}
   deploy-to-queued:
     runs-on: ubuntu-18.04
     name: Queued Deployment
@@ -156,7 +156,7 @@ jobs:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
           state: "queued"
-          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+          deployment_id: ${{ steps.deploy-to-queued.outputs.deployment_id }}
   deploy-to-invalid:
     runs-on: ubuntu-18.04
     name: Invalid Deployment
@@ -177,4 +177,4 @@ jobs:
           token: "${{ github.token }}"
           target_url: http://my-cool-app.com
           state: "invalid"
-          deployment_id: ${{ steps.deployment_prod.outputs.deployment_id }}
+          deployment_id: ${{ steps.deploy-to-invalid.outputs.deployment_id }}
