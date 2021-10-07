@@ -157,24 +157,24 @@ jobs:
           target_url: http://my-cool-app.com
           state: "queued"
           deployment_id: ${{ steps.deployment_prod_queued.outputs.deployment_id }}
-  deploy-to-invalid:
-    runs-on: ubuntu-18.04
-    name: Invalid Deployment
-    steps: 
-      - uses: chrnorm/deployment-action@releases/v1
-        name: Create prod deployment
-        id: deployment_prod_invalid
-        with:
-          token: "${{ github.token }}"
-          target_url: http://my-cool-app.com
-          environment: Production (invalid)
-      - name: Running production deployment
-        run: |
-          echo Deploying to production...
-      - uses: chrnorm/deployment-status@releases/v1
-        name: Update prod deployment
-        with:
-          token: "${{ github.token }}"
-          target_url: http://my-cool-app.com
-          state: "invalid"
-          deployment_id: ${{ steps.deployment_prod_invalid.outputs.deployment_id }}
+  # deploy-to-invalid:
+  #  runs-on: ubuntu-18.04
+  #  name: Invalid Deployment
+  #  steps: 
+  #    - uses: chrnorm/deployment-action@releases/v1
+  #      name: Create prod deployment
+  #      id: deployment_prod_invalid
+  #      with:
+  #        token: "${{ github.token }}"
+  #        target_url: http://my-cool-app.com
+  #        environment: Production (invalid)
+  #    - name: Running production deployment
+  #      run: |
+  #        echo Deploying to production...
+  #    - uses: chrnorm/deployment-status@releases/v1
+  #      name: Update prod deployment
+  #      with:
+  #        token: "${{ github.token }}"
+  #        target_url: http://my-cool-app.com
+  #        state: "invalid"
+  #        deployment_id: ${{ steps.deployment_prod_invalid.outputs.deployment_id }}
